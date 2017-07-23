@@ -1,8 +1,7 @@
 package com.irctc.service.impl;
 
-import com.irctc.service.IColorFormatter;
-
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class KeywordProcessor {
 
@@ -18,9 +17,9 @@ public class KeywordProcessor {
 
     public String processText(String inputText) {
         String copy = inputText;
-        for(String key : keyWords){
+        for (String key : keyWords) {
             final TextFormatter formatter = KeywordFormatter.getFormatterForKeyword(key);
-            if(formatter!=null) {
+            if (formatter != null) {
                 if (inputText.contains(key)) {
                     copy = copy.replaceAll(key, formatter.format(key));
                 }
