@@ -20,8 +20,10 @@ public class KeywordProcessor {
         String copy = inputText;
         for(String key : keyWords){
             final TextFormatter formatter = KeywordFormatter.getFormatterForKeyword(key);
-            if(inputText.contains(key)){
-                copy = copy.replaceAll(key,formatter.format(key));
+            if(formatter!=null) {
+                if (inputText.contains(key)) {
+                    copy = copy.replaceAll(key, formatter.format(key));
+                }
             }
         }
         return copy;
