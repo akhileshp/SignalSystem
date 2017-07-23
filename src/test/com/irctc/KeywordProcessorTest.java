@@ -13,8 +13,8 @@ public class KeywordProcessorTest {
         processor.addKeyword("and");
         processor.addKeyword("then");
         processor.addKeyword("when");
-        String inputText = "gdgd as uf if shst if ";
-        String expectedText = "gdgd [blue]as[blue] uf [blue]if[blue] shst [blue]if[blue] ";
+        String inputText = "gdgd as uf if shst then ";
+        String expectedText = "gdgd [blue]as[blue] uf [red]if[red] shst [green]then[green] ";
         String processedText  = processor.processText(inputText);
         assert expectedText.equals(processedText);
     }
