@@ -10,8 +10,12 @@ public class KeywordFormatter {
 
    static  {
         keywordFormatterMap.put("as", new TextFormatter(new UpperCaseFormatter(),new BlueColorFormatter()));
-        keywordFormatterMap.put("if", new TextFormatter(new LowerCaseFormatter(),new RedColorFormatter()));
-        keywordFormatterMap.put("and",new TextFormatter(new UpperCaseFormatter(),new RedColorFormatter()));
+       TextFormatter ifFormatter = new TextFormatter(new LowerCaseFormatter(), new RedColorFormatter());
+       ifFormatter.setFontWeightFormatter(new BoldFontWeigthFormatter());
+       keywordFormatterMap.put("if", ifFormatter);
+       TextFormatter andFormatter = new TextFormatter(new UpperCaseFormatter(), new RedColorFormatter());
+       andFormatter.setFontWeightFormatter(new BoldFontWeigthFormatter());
+       keywordFormatterMap.put("and", andFormatter);
         keywordFormatterMap.put("then", new TextFormatter(new LowerCaseFormatter(),new GreenColorFormatter()));
         keywordFormatterMap.put("when", new TextFormatter(new LowerCaseFormatter(),new BlueColorFormatter()));
     }

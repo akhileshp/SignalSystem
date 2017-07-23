@@ -2,12 +2,15 @@ package com.irctc.service.impl;
 
 import com.irctc.service.ICaseFormatter;
 import com.irctc.service.IColorFormatter;
+import com.irctc.service.IFontWeightFormatter;
 
 public class TextFormatter {
 
     private ICaseFormatter caseFormatter;
 
     private IColorFormatter colorFormatter;
+
+    private IFontWeightFormatter fontWeightFormatter;
 
     public TextFormatter(ICaseFormatter caseFormatter, IColorFormatter colorFormatter) {
         this.caseFormatter = caseFormatter;
@@ -23,8 +26,16 @@ public class TextFormatter {
         return colorFormatter;
     }
 
+    public void setFontWeightFormatter(IFontWeightFormatter fontWeightFormatter) {
+        this.fontWeightFormatter = fontWeightFormatter;
+    }
+
     public String format(String str) {
-        return colorFormatter.format(caseFormatter.changeCase(str));
+        String colorFormatText = caseFormatter.changeCase(str);
+        if (fontWeightFormatter != null) {
+            return colorFormatter.format(fontWeightFormatter.applyWeight(colorFormatText));
+        }
+        return colorFormatter.format(colorFormatText);
     }
 
 }
