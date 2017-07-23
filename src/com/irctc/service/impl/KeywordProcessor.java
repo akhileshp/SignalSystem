@@ -23,21 +23,13 @@ public class KeywordProcessor {
     }
 
     public String processText(String inputText) {
-        StringBuilder output = new StringBuilder();
-        int lastIndex = -1;
+        String copy = inputText;
         for(String key : keyWords){
-            int index = inputText.indexOf(key);
-            if(index!=-1){
-                lastIndex = index;
-                //  test dys fjf  if fkjfk fdjdjd
-                //
-                output.append(inputText.substring(0,index));
-                int length = output.length();
-                output.append(formatter.format(key));
-                output.append(inputText.substring(length+key.length()));
+            if(inputText.contains(key)){
+                copy = copy.replaceAll(key,formatter.format(key));
             }
         }
-        return output.toString();
+        return copy;
     }
 
     public void setFormatter(IFormatter formatter) {
