@@ -8,13 +8,8 @@ public class KeywordProcessor {
 
     private Set<String> keyWords;
 
-    private IColorFormatter formatter;
-
-
-
     public KeywordProcessor() {
         keyWords = new HashSet<>();
-        this.formatter = new BlueColorFormatter();
     }
 
     public void addKeyword(String keyword) {
@@ -30,9 +25,5 @@ public class KeywordProcessor {
             }
         }
         return copy;
-    }
-
-    public void setFormatter(IColorFormatter formatter) {
-        this.formatter = formatter;
     }
 }
