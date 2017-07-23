@@ -1,6 +1,6 @@
 package com.irctc.service.impl;
 
-import com.irctc.service.IFormatter;
+import com.irctc.service.IColorFormatter;
 
 import java.util.*;
 
@@ -8,13 +8,13 @@ public class KeywordProcessor {
 
     private Set<String> keyWords;
 
-    private IFormatter formatter;
+    private IColorFormatter formatter;
 
 
 
     public KeywordProcessor() {
         keyWords = new HashSet<>();
-        this.formatter = new BlueFormatter();
+        this.formatter = new BlueColorFormatter();
     }
 
     public void addKeyword(String keyword) {
@@ -24,7 +24,7 @@ public class KeywordProcessor {
     public String processText(String inputText) {
         String copy = inputText;
         for(String key : keyWords){
-            final IFormatter formatter = KeywordFormatter.getFormatterForKeyword(key);
+            final TextFormatter formatter = KeywordFormatter.getFormatterForKeyword(key);
             if(inputText.contains(key)){
                 copy = copy.replaceAll(key,formatter.format(key));
             }
@@ -32,7 +32,7 @@ public class KeywordProcessor {
         return copy;
     }
 
-    public void setFormatter(IFormatter formatter) {
+    public void setFormatter(IColorFormatter formatter) {
         this.formatter = formatter;
     }
 }

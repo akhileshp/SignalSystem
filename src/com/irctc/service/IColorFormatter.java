@@ -1,6 +1,6 @@
 package com.irctc.service;
 
-public interface IFormatter {
+public interface IColorFormatter {
 
     String format(String str);
 }

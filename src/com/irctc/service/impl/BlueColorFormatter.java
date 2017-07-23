@@ -1,8 +1,8 @@
 package com.irctc.service.impl;
 
-import com.irctc.service.IFormatter;
+import com.irctc.service.IColorFormatter;
 
-public class BlueFormatter implements IFormatter {
+public class BlueColorFormatter implements IColorFormatter {
 
     @Override
     public String format(String str) {
